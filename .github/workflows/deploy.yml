@@ -22,6 +22,11 @@ jobs:
           if [ -f CNAME ]; then
             cp CNAME public/
           fi
+          for asset in *.ico *.png *.webmanifest; do
+            if [ -f "$asset" ]; then
+              cp "$asset" public/
+            fi
+          done
 
       - name: Deploy to Pages branch
         uses: peaceiris/actions-gh-pages@v4
